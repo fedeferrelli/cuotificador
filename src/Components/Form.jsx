@@ -20,33 +20,33 @@ function Form() {
     }
 
     return (
-      <main className=" min-h-screen flex flex-col bg-pink-800 ">
-        <section className="w-11/12 rounded-md  m-auto  bg-yellow-600 py-4 flex flex-col gap-6">
+      <main className=" min-h-screen flex flex-col bg-primary ">
+        <section className="w-11/12 rounded-md  m-auto  bg-secondary py-4 flex flex-col gap-6">
           
           
           
-            <div className="w-11/12 m-auto rounded-md p-2 border border-pink-800 flex flex-col justify-between items-center"> 
+            <div className="w-11/12 m-auto rounded-md p-2 border border-primary flex flex-col justify-between items-center"> 
             <label htmlFor="cash" className="w-full text-slate-800"> Precio en efectivo </label>
-            <input id="cash" className="w-full outline-none decoration-indigo-700 bg-yellow-600 text-pink-800 text-2xl font-bold" type="number" onChange={(e)=>setCash(e.target.value)}></input>
+            <input id="cash" className="w-full outline-none bg-secondary text-primary text-2xl font-bold" type="number" onChange={(e)=>setCash(e.target.value)}></input>
             </div>
 
-            <div className="w-11/12 m-auto rounded-md p-2 border border-pink-800 flex flex-col justify-between items-center"> 
+            <div className="w-11/12 m-auto rounded-md p-2 border border-primary flex flex-col justify-between items-center"> 
             <label htmlFor="card" className="w-full text-slate-800"> Precio con tarjeta </label>
-            <input id="card" className="w-full outline-none decoration-indigo-700 bg-yellow-600 text-pink-800 text-2xl font-bold" type="number" onChange={(e)=>setCard(e.target.value)}></input>
+            <input id="card" className="w-full outline-none bg-secondary text-primary text-2xl font-bold" type="number" onChange={(e)=>setCard(e.target.value)}></input>
             </div>
 
-            <div className="w-11/12 m-auto rounded-md p-2  border border-pink-800 flex flex-col justify-between items-center"> 
+            <div className="w-11/12 m-auto rounded-md p-2  border border-primary flex flex-col justify-between items-center"> 
             <label htmlFor="card" className="w-full text-slate-800"> Cuotas </label>
-            <input id="card" className="w-full outline-none decoration-indigo-700 bg-yellow-600 text-pink-800 text-2xl font-bold" type="number" onChange={(e)=>setCuotas(e.target.value)} ></input>
+            <input id="card" className="w-full outline-none decoration-indigo-700 bg-secondary text-primary text-2xl font-bold" type="number" onChange={(e)=>setCuotas(e.target.value)} ></input>
             </div>
 
-            <div className="w-11/12 m-auto rounded-md p-2  border border-pink-800 flex flex-col justify-between items-center"> 
+            <div className="w-11/12 m-auto rounded-md p-2  border border-primary flex flex-col justify-between items-center"> 
             <label htmlFor="card" className="w-full text-slate-800"> Tasa Nominal Anual (TNA) </label>
-            <input id="card" className="w-full outline-none decoration-indigo-700 bg-yellow-600 text-pink-800 text-2xl font-bold" type="number" onChange={(e)=>setTasa(e.target.value)}></input>
+            <input id="card" className="w-full outline-none decoration-indigo-700 bg-secondary text-primary text-2xl font-bold" type="number" onChange={(e)=>setTasa(e.target.value)}></input>
             </div>
 
-            <button className="w-11/12 m-auto rounded-md p-2 h-16 bg-pink-800 flex flex-col cursor-pointer hover:bg-pink-900 duration-300" onClick={()=>calcular()}>
-                <div className="uppercase m-auto  text-yellow-600 text-2xl font-bold tracking-wider">Calcular</div>
+            <button className="w-11/12 m-auto rounded-md p-2 h-16 bg-primary flex flex-col cursor-pointer hover:bg-pink-900 duration-300" onClick={()=>calcular()}>
+                <div className="uppercase m-auto  text-secondary text-2xl font-bold tracking-wider">Calcular</div>
             </button>
 
 

@@ -9,10 +9,10 @@ function Respuesta({value, cash, card, cuotas, tasa}) {
 
           {  value < cash ?
           
-          <section className="flex flex-col justify-center items-center">
-              <div className="animate-pulse  uppercase text-yellow-600 text-4xl font-bold tracking-wider"> Cuotifica    </div>
+          <section className="flex flex-col justify-center items-center text-secondary">
+              <div className="animate-pulse  uppercase  text-4xl font-bold tracking-wider"> Cuotifica    </div>
 
-            <div className="text-center leading-8 mt-4 text-lg text-yellow-600">
+            <div className="text-center leading-8 mt-4 text-lg">
                 Si colocás {new Intl.NumberFormat("de-DE", {
                           style: "currency",
                           currency: "ARS",
@@ -22,7 +22,7 @@ function Respuesta({value, cash, card, cuotas, tasa}) {
                           }).format(card/cuotas)} mensuales para pagar las {cuotas} cuotas.
             </div>
 
-            <div className="text-center leading-8 text-lg text-yellow-600">
+            <div className="text-center leading-8 text-lg">
                 Es decir obtenés un descuento implícito de 
                 <span className="text-2xl block font-bold">{Math.abs( Math.round((value/cash-1)*1000)/10)}%</span>
             </div>
@@ -32,10 +32,10 @@ function Respuesta({value, cash, card, cuotas, tasa}) {
           
           :
 
-          <section className="flex flex-col justify-center items-center">
-          <div className="animate-pulse  uppercase text-yellow-600 text-4xl font-bold tracking-wider"> Paga Cash    </div>
+          <section className="flex flex-col justify-center items-center text-secondary">
+          <div className="animate-pulse  uppercase text-4xl font-bold tracking-wider"> Paga Cash    </div>
 
-        <div className="text-center leading-8 mt-4 text-lg text-yellow-600">
+        <div className="text-center leading-8 mt-4 text-lg ">
 
             Para obtener {cuotas} pagos de {new Intl.NumberFormat("de-DE", {
                         style: "currency",
@@ -47,7 +47,7 @@ function Respuesta({value, cash, card, cuotas, tasa}) {
 
         </div>
 
-        <div className="text-center leading-8 text-lg text-yellow-600">
+        <div className="text-center leading-8 text-lg">
             Es decir, la opción de cuotificar es 
             <span className="text-2xl block font-bold">{Math.abs( Math.round((value/cash-1)*1000)/10)}%</span> mas cara
         </div>
