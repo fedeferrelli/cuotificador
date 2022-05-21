@@ -9,6 +9,7 @@ function Form() {
     const [tasa, setTasa] = useState()
     const [value, setValue] = useState()
     const [error, setError] = useState()
+    const [showResult, setShowResult] = useState(false)
 
 
     const calcular = () =>{
@@ -28,26 +29,32 @@ function Form() {
             setError("Los valores ingresados deben ser positivos");
         } else if (ca < c) {
             setError("El valor con tarjeta no debe ser menor al valor en efectivo");
-            console.log('fede')
+           
         } else {
-            console.log('v')
-            console.log('ca', ca)
-            console.log('c', c)
-            console.log(parseFloat(ca)> parseFloat(ca))
         let v = p/i *  (1-(1/(1+i)**n))
-
-        setValue(v) }
+        setValue(v) 
+        setShowResult(true)}
     }
 
-    const inputs = [{label:'Precio en efectivo', onChange: (e)=>setCash(e.target.value)},
-    {label:'Precio con tarjeta', onChange: (e)=>setCard(e.target.value)},
-    {label:'Cuotas', onChange: (e)=>setCuotas(e.target.value)},
-    {label:'Tasa Nominal Anual (TNA) alternativa', onChange: (e)=>setTasa(e.target.value)},]
+    const inputs = [{label:'Precio en efectivo', name: 'cash'},
+    {label:'Precio con tarjeta', name: 'card'},
+    {label:'Cuotas', name: 'cuotas'},
+    {label:'Tasa Nominal Anual (TNA) alternativa', name: 'tasa'}]
+
+    const onCha = (e, name) =>{
+        setShowResult(false);
+
+        if (name === 'cash') {setCash(e.target.value)}
+        else if (name === 'card') {setCard(e.target.value)}
+        else if (name === 'cuotas') {setCuotas(e.target.value)}
+        else {setTasa(e.target.value)}
+        
+    }
 
 
     return (
-      <main className=" min-h-screen flex flex-col justify-start items-start bg-primary">
-        <section className="w-11/12 rounded-md  m-auto  bg-secondary py-4 flex flex-col gap-6">
+      <main className=" min-h-screen flex flex-col justify-between bg-primary">
+        <section className="w-11/12 rounded-md  m-auto mt-10  bg-secondary py-4 flex flex-col gap-6">
           {inputs.map((item) => (
             <div
               key={item.label}
@@ -62,7 +69,7 @@ function Form() {
                 className="w-full outline-none bg-secondary text-primary text-2xl font-bold"
                 type="number"
                 min="0"
-                onChange={item.onChange}
+                onChange={(e) => onCha(e, item.name)}
                 
               ></input>
             </div>
@@ -84,10 +91,8 @@ function Form() {
         
 
         <div className="mt-12">
-          {value && error==="" && ( 
-
-             
-
+          {showResult && ( 
+            
             <Respuesta
               value={value}
               cash={cash}
