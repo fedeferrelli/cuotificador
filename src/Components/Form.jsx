@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import Respuesta from './Respuesta';
 
+import { Link } from 'react-scroll';
+
 function Form() {
 
     const [cash, setCash] = useState()
@@ -20,9 +22,7 @@ function Form() {
         let n = parseFloat(cuotas);
         let i = (parseFloat(tasa)/100)/12;
 
-        console.log('ca', ca)
-        console.log('c', c)
-
+        
         setError("")
 
         if (c <= 0 || !c  || ca <= 0 || !ca || cu <= 0 || !cu ||  n <= 0 || !n || i <= 0 || !i ) {
@@ -53,7 +53,7 @@ function Form() {
 
 
     return (
-      <main className=" min-h-screen flex flex-col justify-between bg-primary">
+      <main className=" min-h-full flex flex-col justify-between bg-primary">
         <section className="w-11/12 rounded-md  m-auto mt-10  bg-secondary py-4 flex flex-col gap-6">
           {inputs.map((item) => (
             <div
@@ -74,15 +74,17 @@ function Form() {
               ></input>
             </div>
           ))}
-
+<Link activeClass="active" to="result" spy={true} smooth={true} duration={1000} >
           <button
             className="w-11/12 m-auto rounded-md p-2 h-16 bg-primary flex flex-col cursor-pointer hover:bg-pink-900 duration-300"
             onClick={() => calcular()}
           >
+              
             <div className="uppercase m-auto  text-secondary text-2xl font-bold tracking-wider">
               Calcular
             </div>
           </button>
+          </Link>
         </section>
 
 {error && <div className="w-11/12 mt-0 m-auto text-center text-lg text-secondary">
@@ -90,7 +92,7 @@ function Form() {
             </div>}
         
 
-        <div className="mt-12">
+        <div id="result"  className="mt-6">
           {showResult && ( 
             
             <Respuesta
