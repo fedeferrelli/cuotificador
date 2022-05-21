@@ -10,22 +10,39 @@ function Form() {
     const [value, setValue] = useState()
     const [error, setError] = useState()
 
-    const calcular = () =>{
-      
-        let p = card/cuotas
-        let n = cuotas;
-        let i = (tasa/100)/12;
 
-     
+    const calcular = () =>{
+        let c = parseFloat(cash)
+        let ca = parseFloat(card)
+        let cu = parseFloat(cuotas)
+        let p = ca/cu
+        let n = parseFloat(cuotas);
+        let i = (parseFloat(tasa)/100)/12;
+
+        console.log('ca', ca)
+        console.log('c', c)
+
+        setError("")
+
+        if (c <= 0 || !c  || ca <= 0 || !ca || cu <= 0 || !cu ||  n <= 0 || !n || i <= 0 || !i ) {
+            setError("Los valores ingresados deben ser positivos");
+        } else if (ca < c) {
+            setError("El valor con tarjeta no debe ser menor al valor en efectivo");
+            console.log('fede')
+        } else {
+            console.log('v')
+            console.log('ca', ca)
+            console.log('c', c)
+            console.log(parseFloat(ca)> parseFloat(ca))
         let v = p/i *  (1-(1/(1+i)**n))
 
-        setValue(v)
+        setValue(v) }
     }
 
-    const inputs = [{label:'Precio en efectivo', onClick: (e)=>setCash(e.target.value)},
-    {label:'Precio con tarjeta', onClick: (e)=>setCard(e.target.value)},
-    {label:'Cuotas', onClick: (e)=>setCuotas(e.target.value)},
-    {label:'Tasa Nominal Anual (TNA) alternativa', onClick: (e)=>setTasa(e.target.value)},]
+    const inputs = [{label:'Precio en efectivo', onChange: (e)=>setCash(e.target.value)},
+    {label:'Precio con tarjeta', onChange: (e)=>setCard(e.target.value)},
+    {label:'Cuotas', onChange: (e)=>setCuotas(e.target.value)},
+    {label:'Tasa Nominal Anual (TNA) alternativa', onChange: (e)=>setTasa(e.target.value)},]
 
 
     return (
@@ -45,7 +62,8 @@ function Form() {
                 className="w-full outline-none bg-secondary text-primary text-2xl font-bold"
                 type="number"
                 min="0"
-                onChange={item.onClick}
+                onChange={item.onChange}
+                
               ></input>
             </div>
           ))}
@@ -60,16 +78,24 @@ function Form() {
           </button>
         </section>
 
+{error && <div className="w-11/12 mt-0 m-auto text-center text-lg text-secondary">
+               {error}
+            </div>}
+        
+
         <div className="mt-12">
-          {value ? (
+          {value && error==="" && ( 
+
+             
+
             <Respuesta
-              value={value}
+              value={val}
               cash={cash}
               tasa={tasa}
               cuotas={cuotas}
               card={card}
             />
-          ) : null}
+            )}
         </div>
       </main>
     );
