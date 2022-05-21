@@ -89,7 +89,7 @@ function Form() {
              
 
             <Respuesta
-              value={val}
+              value={value}
               cash={cash}
               tasa={tasa}
               cuotas={cuotas}
