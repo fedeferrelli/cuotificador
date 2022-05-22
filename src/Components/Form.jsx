@@ -53,12 +53,12 @@ function Form() {
 
 
     return (
-      <main className=" min-h-full flex flex-col justify-between bg-primary">
-        <section className="w-11/12 rounded-md  m-auto mt-10  bg-secondary py-4 flex flex-col gap-6">
+      <main className=" min-h-full flex flex-col mt-6 justify-center  gap-8 sm:flex-row sm:mt-0 sm:justify-center sm:gap-0 sm:text-sm">
+        <section className="w-11/12 sm:w-1/2 sm:max-w-[400px] sm:mr-4 rounded-md  m-auto bg-secondary py-4 flex flex-col gap-6">
           {inputs.map((item) => (
             <div
               key={item.label}
-              className="w-11/12 m-auto rounded-md p-2 border border-primary flex flex-col justify-between items-center"
+              className="w-11/12 m-auto rounded-md p-2 border-2 sm:border border-primary flex flex-col justify-between items-center"
             >
               <label htmlFor={item.label} className="w-full text-slate-800">
                 {" "}
@@ -85,14 +85,17 @@ function Form() {
             </div>
           </button>
           </Link>
-        </section>
 
-{error && <div className="w-11/12 mt-0 m-auto text-center text-lg text-secondary">
+          {error && <div className="w-11/12 mt-0 m-auto text-center text-lg text-primary">
                {error}
             </div>}
-        
 
-        <div id="result"  className="mt-6">
+        </section>
+
+
+     <section className="mt-6 flex sm:mt-0 sm:w-1/2 " >   
+
+        <div id="result"  className="sm:m-auto sm:ml-4 sm:w-full sm:max-w-[400px]">
           {showResult && ( 
             
             <Respuesta
@@ -104,6 +107,7 @@ function Form() {
             />
             )}
         </div>
+        </section>
       </main>
     );
 }
