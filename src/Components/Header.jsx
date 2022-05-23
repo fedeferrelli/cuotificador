@@ -9,7 +9,7 @@ function Header() {
 
 
     return (
-        <main className="max-w-[1440px] flex flex-col pb-6 sm:pb-10 pt-2 tracking-wider">
+        <main className="max-w-[1440px] flex flex-col pb-3 sm:pb-10 pt-4 tracking-wider">
            <div className="m-auto text-secondary font-bold text-4xl sm:text-5xl">Cuotificar o no,</div>
            <div className="m-auto text-secondary font-bold text-2xl sm:text-4xl  flex">he ahí el dilema <span className="text-sm flex ml-1 cursor-pointer"><BsQuestionCircle className=" m-auto" onClick={()=>setShowExplanation(true)}/></span> </div>
            
