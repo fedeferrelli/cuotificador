@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Respuesta from './Respuesta';
 
-import { Link } from 'react-scroll';
+import { Link } from 'react-scroll'
 
 function Form() {
 
@@ -58,7 +58,7 @@ function Form() {
           {inputs.map((item) => (
             <div
               key={item.label}
-              className="w-11/12 m-auto rounded-md p-2 border-2 sm:border border-primary flex flex-col justify-between items-center"
+              className="w-11/12 m-auto rounded-md p-2 sm:py-1 border-2 sm:border border-primary flex flex-col justify-between items-center"
             >
               <label htmlFor={item.label} className="w-full text-slate-800">
                 {" "}
@@ -66,7 +66,7 @@ function Form() {
               </label>
               <input
                 id={item.label}
-                className="w-full outline-none bg-secondary text-primary text-2xl font-bold"
+                className="w-full outline-none bg-secondary text-primary text-2xl sm:text-xl font-bold"
                 type="number"
                 min="0"
                 onChange={(e) => onCha(e, item.name)}
@@ -76,17 +76,17 @@ function Form() {
           ))}
 <Link activeClass="active" to="result" spy={true} smooth={true} duration={1000} >
           <button
-            className="w-11/12 m-auto rounded-md p-2 h-16 bg-primary flex flex-col cursor-pointer hover:bg-pink-900 duration-300"
+            className="w-11/12 m-auto rounded-md p-2 h-16 sm:h-12 bg-primary flex flex-col cursor-pointer hover:bg-pink-900 duration-300"
             onClick={() => calcular()}
           >
               
-            <div className="uppercase m-auto  text-secondary text-2xl font-bold tracking-wider">
+            <div className="uppercase m-auto text-secondary text-2xl sm:text-xl font-bold tracking-wider">
               Calcular
             </div>
           </button>
           </Link>
 
-          {error && <div className="w-11/12 mt-0 m-auto text-center text-lg text-primary">
+          {error && <div className="w-11/12 mt-0 m-auto text-center text-md text-primary">
                {error}
             </div>}
 

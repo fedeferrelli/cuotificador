@@ -7,9 +7,13 @@ function App() {
  
   return (
     <main className="min-h-screen bg-primary flex flex-col justify-between">
-    <Header/>
+      <section className="flex flex-col">
+      <Header/>
     <Form/>
-    <Footer/>
+    
+      </section>
+    <section className="bottom-0"> <Footer/> </section>
+    
     </main>
   )
 }
